@@ -1,0 +1,109 @@
+---
+config:
+  theme: base
+  look: classic
+  fontFamily: Arial, sans-serif
+  themeCSS: |
+    .nodeLabel, .edgeLabel, .cluster-label {
+      font-family: Arial, sans-serif !important;
+    }
+    .card {
+      display: flex !important;
+      width: 300px !important;
+      height: 140px !important;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.35;
+    }
+    .nodeLabel p { margin: 0 !important; }
+    .cluster rect { rx: 18px; ry: 18px; }
+    .spacer { opacity: 0 !important; }
+  themeVariables:
+    fontSize: 17px
+    lineColor: '#8a98ae'
+    clusterBkg: '#ffffff'
+    clusterBorder: '#e0e6f0'
+    edgeLabelBackground: '#ffffff'
+  flowchart:
+    htmlLabels: true
+    wrappingWidth: 300
+    nodeSpacing: 20
+    rankSpacing: 35
+    padding: 20
+    curve: linear
+---
+flowchart LR
+    subgraph S["01 · DATA SOURCES"]
+        direction TB
+        OSM["<div class='card'><div>fa:fa-map <b>OpenStreetMap</b><br/>POIs, roads and transit<br/>Green, water and land use<br/>3D building footprints</div></div>"]
+        T["<div class='card'><div>fa:fa-university <b>Treasury Data</b><br/>Bangkok appraisal CSV<br/>Official datastore API<br/>Prices in THB / sq. wah</div></div>"]
+        REF["<div class='card'><div>fa:fa-layer-group <b>Reference Layers</b><br/>Bangkok districts<br/>Rail lines and stations<br/>Curated landmarks</div></div>"]
+        S4["<div class='card'><div> </div></div>"]
+        S5["<div class='card'><div> </div></div>"]
+        OSM ~~~ T ~~~ REF ~~~ S4 ~~~ S5
+    end
+
+    subgraph P["02 · DATA PROCESSING"]
+        direction TB
+        PREP["<div class='card'><div>fa:fa-th <b>Prepare Spatial Data</b><br/>Fetch, clean and deduplicate<br/>300 m hex edge / UTM 47N</div></div>"]
+        FEAT["<div class='card'><div>fa:fa-layer-group <b>Feature Engineering</b><br/>Spatial joins and distances<br/>Density, diversity and shares</div></div>"]
+        SCORE["<div class='card'><div>fa:fa-chart-bar <b>Quality Scoring</b><br/>Calculate neighborhood quality scores<br/>0–100</div></div>"]
+        IDX["<div class='card'><div>fa:fa-university <b>Appraisal Index</b><br/>Organize appraisal data by area</div></div>"]
+        PREP --> FEAT --> SCORE
+        P5["<div class='card'><div> </div></div>"]
+        SCORE ~~~ IDX ~~~ P5
+    end
+
+    subgraph D["03 · LOCAL STORAGE"]
+        direction TB
+        GEO["<div class='card'><div>fa:fa-database <b>Spatial Store</b><br/>Parquet and GeoJSON<br/>Cells, features and scores<br/>Raw and processed layers</div></div>"]
+        META["<div class='card'><div>fa:fa-file-alt <b>Reference Store</b><br/>Treasury index JSON<br/>District and transit data<br/>Static map assets</div></div>"]
+        NOTE["<div class='card'><div><b>File-based local data</b><br/>Hex ID links spatial records</div></div>"]
+        D4["<div class='card'><div> </div></div>"]
+        D5["<div class='card'><div> </div></div>"]
+        GEO ~~~ META ~~~ NOTE ~~~ D4 ~~~ D5
+    end
+
+    subgraph B["04 · BACKEND SERVICES"]
+        direction TB
+        API["<div class='card'><div>fa:fa-server <b>FastAPI REST API</b><br/>HTTP / JSON / GeoJSON</div></div>"]
+        ANALYSIS["<div class='card'><div>fa:fa-map-marker-alt <b>Location Analysis</b><br/>Scores, factors and street proxies</div></div>"]
+        RANK["<div class='card'><div>fa:fa-sliders-h <b>Preference Ranking</b><br/>Weighted match, filters and Top-K</div></div>"]
+        PRICE["<div class='card'><div>fa:fa-university <b>Land Price Reference<br/>and Estimation</b><br/>Official appraisal references<br/>Rule-based fallback estimates</div></div>"]
+        MEMO["<div class='card'><div>fa:fa-file-alt <b>Local Rule-based Memo</b><br/>Strengths, cautions and context</div></div>"]
+        API --> ANALYSIS
+        ANALYSIS ~~~ RANK ~~~ PRICE ~~~ MEMO
+    end
+
+    subgraph F["05 · WEB APPLICATION"]
+        direction TB
+        USER["<div class='card'><div>fa:fa-user <b>Users</b><br/>Choose a location and preferences</div></div>"]
+        UI["<div class='card'><div>fa:fa-desktop <b>Next.js and React</b><br/>MapLibre GL / 3D map / heatmap<br/>Search, preferences and ranked results<br/>Land price references and estimates<br/>Location details and investment memo<br/>English / Thai interface</div></div>"]
+        MAP["<div class='card'><div>fa:fa-map <b>External Map Services</b><br/>Basemap / satellite display tiles<br/>Street View / Mapillary links<br/>Visual verification by the user</div></div>"]
+        USER <--> UI
+        F4["<div class='card'><div> </div></div>"]
+        F5["<div class='card'><div> </div></div>"]
+        UI <--> MAP
+        MAP ~~~ F4 ~~~ F5
+    end
+
+    S --> P --> D --> B
+    B <--> F
+
+    classDef source fill:#f5f3ff,stroke:#f5f3ff,color:#352c65,rx:14,ry:14
+    classDef process fill:#f0faf6,stroke:#f0faf6,color:#145c47,rx:14,ry:14
+    classDef storage fill:#fffaf0,stroke:#fffaf0,color:#725315,rx:14,ry:14
+    classDef backend fill:#f0f6ff,stroke:#f0f6ff,color:#234d82,rx:14,ry:14
+    classDef web fill:#faf3fd,stroke:#faf3fd,color:#64387e,rx:14,ry:14
+    classDef external fill:#f4f6fa,stroke:#f4f6fa,color:#4d617b,rx:14,ry:14
+    classDef note fill:#ffffff,stroke:#ffffff,color:#b77513
+    class OSM,T,REF source
+    class PREP,FEAT,SCORE,IDX process
+    class GEO,META storage
+    class NOTE note
+    class API,ANALYSIS,RANK,PRICE,MEMO backend
+    class USER,UI web
+    class MAP external
+
+    classDef spacer fill:transparent,stroke:transparent,color:transparent
+    class S4,S5,P5,D4,D5,F4,F5 spacer

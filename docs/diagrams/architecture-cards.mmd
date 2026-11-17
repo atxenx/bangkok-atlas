@@ -1,0 +1,84 @@
+---
+config:
+  theme: base
+  look: classic
+  fontFamily: Arial, sans-serif
+  themeCSS: ".nodeLabel, .edgeLabel, .cluster-label { font-family: Arial, sans-serif !important; } .cluster rect { rx: 18px; ry: 18px; }"
+  themeVariables:
+    fontSize: 17px
+    lineColor: '#8a98ae'
+    clusterBkg: '#ffffff'
+    clusterBorder: '#e0e6f0'
+    edgeLabelBackground: '#ffffff'
+  flowchart:
+    htmlLabels: true
+    wrappingWidth: 300
+    nodeSpacing: 20
+    rankSpacing: 35
+    padding: 20
+    curve: linear
+---
+flowchart LR
+    subgraph S["01 · DATA SOURCES"]
+        direction TB
+        OSM["fa:fa-map <b>OpenStreetMap</b><br/>POIs, roads and transit<br/>Green, water and land use<br/>3D building footprints"]
+        T["fa:fa-university <b>Treasury Data</b><br/>Bangkok appraisal CSV<br/>Official datastore API<br/>Prices in THB / sq. wah"]
+        REF["fa:fa-layer-group <b>Reference Layers</b><br/>Bangkok districts<br/>Rail lines and stations<br/>Curated landmarks"]
+        OSM ~~~ T ~~~ REF
+    end
+
+    subgraph P["02 · DATA PROCESSING"]
+        direction TB
+        PREP["fa:fa-th <b>Prepare Spatial Data</b><br/>Fetch, clean and deduplicate<br/>300 m hex edge / UTM 47N"]
+        FEAT["fa:fa-layer-group <b>Feature Engineering</b><br/>Spatial joins and distances<br/>Density, diversity and shares"]
+        SCORE["fa:fa-chart-bar <b>Quality Scoring</b><br/>9 dimensions / 0–100"]
+        IDX["fa:fa-university <b>Appraisal Index</b><br/>500 m / 2 km / district"]
+        PREP --> FEAT --> SCORE
+        SCORE ~~~ IDX
+    end
+
+    subgraph D["03 · LOCAL STORAGE"]
+        direction TB
+        GEO["fa:fa-database <b>Spatial Store</b><br/>Parquet and GeoJSON<br/>Cells, features and scores<br/>Raw and processed layers"]
+        META["fa:fa-file-alt <b>Reference Store</b><br/>Treasury index JSON<br/>District and transit data<br/>Static map assets"]
+        NOTE["<b>File-based local data</b><br/>Hex ID links spatial records"]
+        GEO ~~~ META ~~~ NOTE
+    end
+
+    subgraph B["04 · BACKEND SERVICES"]
+        direction TB
+        API["fa:fa-server <b>FastAPI REST API</b><br/>HTTP / JSON / GeoJSON"]
+        ANALYSIS["fa:fa-map-marker-alt <b>Location Analysis</b><br/>Scores, factors and street proxies"]
+        RANK["fa:fa-sliders-h <b>Preference Ranking</b><br/>Weighted match, filters and Top-K"]
+        PRICE["fa:fa-university <b>Appraisal Reference</b><br/>Area median / P10–P90 / refresh"]
+        MEMO["fa:fa-file-alt <b>Local Rule-based Memo</b><br/>Strengths, cautions and context"]
+        API --> ANALYSIS
+        ANALYSIS ~~~ RANK ~~~ PRICE ~~~ MEMO
+    end
+
+    subgraph F["05 · WEB APPLICATION"]
+        direction TB
+        USER["fa:fa-user <b>Users</b><br/>Choose a location and preferences"]
+        UI["fa:fa-desktop <b>Next.js and React</b><br/>MapLibre GL / 3D map<br/>Quality heatmap and location search<br/>Preference sliders and ranked results<br/>Location details and investment memo<br/>English / Thai interface"]
+        MAP["fa:fa-map <b>External Map Services</b><br/>Basemap / satellite display tiles<br/>Street View / Mapillary links<br/>Visual verification by the user"]
+        USER <--> UI
+        UI <--> MAP
+    end
+
+    S --> P --> D --> B
+    B <--> F
+
+    classDef source fill:#f5f3ff,stroke:#f5f3ff,color:#352c65,rx:14,ry:14
+    classDef process fill:#f0faf6,stroke:#f0faf6,color:#145c47,rx:14,ry:14
+    classDef storage fill:#fffaf0,stroke:#fffaf0,color:#725315,rx:14,ry:14
+    classDef backend fill:#f0f6ff,stroke:#f0f6ff,color:#234d82,rx:14,ry:14
+    classDef web fill:#faf3fd,stroke:#faf3fd,color:#64387e,rx:14,ry:14
+    classDef external fill:#f4f6fa,stroke:#f4f6fa,color:#4d617b,rx:14,ry:14
+    classDef note fill:#ffffff,stroke:#ffffff,color:#b77513
+    class OSM,T,REF source
+    class PREP,FEAT,SCORE,IDX process
+    class GEO,META storage
+    class NOTE note
+    class API,ANALYSIS,RANK,PRICE,MEMO backend
+    class USER,UI web
+    class MAP external

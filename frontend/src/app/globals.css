@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #18181b;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Sukhumvit Set", "Thonburi", "Sarabun", Arial, sans-serif;
+}
+
+/* Floating, translucent navigation on the landing page only. */
+.landing-glass-nav {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(104deg, rgba(27, 39, 36, 0.96) 0%, rgba(35, 48, 45, 0.91) 64%, rgba(83, 106, 98, 0.76) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow: 0 14px 36px rgba(31, 48, 39, 0.14), inset 0 1px rgba(255, 255, 255, 0.26), inset 0 -1px rgba(0, 0, 0, 0.12);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  backdrop-filter: blur(24px) saturate(150%);
+}
+
+.landing-glass-nav::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 38%);
+}
+
+/* Keep map-native controls visually consistent with the quieter explore UI. */
+.explore-shell .maplibregl-ctrl-group {
+  overflow: hidden;
+  border: 1px solid rgba(221, 231, 219, 0.9);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 25px rgba(28, 50, 38, 0.13);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.explore-shell .maplibregl-ctrl-group button + button {
+  border-top-color: #e8eee6;
+}
+
+.explore-shell .maplibregl-popup-content {
+  border: 1px solid #dfe8dc;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(28, 50, 38, 0.16);
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+/* Parks remain legible over light, dark, satellite and 3D basemaps. */
+.green-space-marker { z-index: 4; }
+.green-space-marker:focus-within, .green-space-marker:hover { z-index: 5; }
+.green-space-button { position: relative; display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
+.green-space-button:focus-visible { outline: 3px solid #236a47; outline-offset: 3px; background: #fff; }
+.green-space-tree { filter: drop-shadow(0 2px 2px #163f3940); }
+.green-space-label { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); max-width: 210px; width: max-content; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border: 1px solid #c2d9ca; border-radius: 8px; padding: 3px 7px; background: #fffffff5; color: #24573d; font: 600 11px/1.5 system-ui, sans-serif; box-shadow: 0 2px 6px #1d403218; }
+.green-space-label[data-collapsed="true"] { visibility: hidden; }
+.green-space-button:hover .green-space-label, .green-space-button:focus-visible .green-space-label { visibility: visible; }
+.green-space-popup { padding: 4px; color: #244936; font: 12px/1.6 system-ui, sans-serif; }
+.green-space-popup strong { display: block; padding-right: 10px; font-size: 15px; }
+.green-space-popup p { margin: 8px 0; color: #617569; }
+.green-space-popup a { color: #176746; text-decoration: underline; }

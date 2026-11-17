@@ -1,0 +1,63 @@
+---
+title: FastAPI Backend - Implemented Modules
+config:
+  theme: default
+  themeCSS: "text { paint-order: stroke; stroke: white; stroke-width: 5px; stroke-linejoin: round; }"
+  architecture:
+    iconSize: 110
+    fontSize: 16
+    padding: 25
+    nodeSeparation: 110
+    idealEdgeLengthMultiplier: 2.0
+    seed: 7
+---
+architecture-beta
+    group backend(cloud)[FastAPI Backend]
+    service api(server)[REST API] in backend
+
+    junction b0 in backend
+    junction b1 in backend
+    junction b2 in backend
+    junction b3 in backend
+    junction b4 in backend
+    junction b5 in backend
+    junction b6 in backend
+    junction b7 in backend
+
+    service location(server)[Context and Comparables] in backend
+    service ranking(server)[Weighted Top K] in backend
+    service price(server)[Area Price Reference] in backend
+    service street(server)[OSM Street Proxies] in backend
+    service memo(server)[Rule Based Memo] in backend
+    service mapsearch(server)[Map Layers and Search] in backend
+    service parcel(server)[Parcel ID Lookup] in backend
+    service cache(database)[In Memory Cache] in backend
+
+    api:B <--> T:b3
+    b0:R -- L:b1
+    b1:R -- L:b2
+    b2:R -- L:b3
+    b3:R -- L:b4
+    b4:R -- L:b5
+    b5:R -- L:b6
+    b6:R -- L:b7
+
+    b0:B <--> T:location
+    b1:B <--> T:ranking
+    b2:B <--> T:price
+    b3:B <--> T:street
+    b4:B <--> T:memo
+    b5:B <--> T:mapsearch
+    b6:B <--> T:parcel
+    b7:B <--> T:cache
+
+    align row b0 b1 b2 b3 b4 b5 b6 b7
+    align row location ranking price street memo mapsearch parcel cache
+    align column b0 location
+    align column b1 ranking
+    align column b2 price
+    align column api b3 street
+    align column b4 memo
+    align column b5 mapsearch
+    align column b6 parcel
+    align column b7 cache

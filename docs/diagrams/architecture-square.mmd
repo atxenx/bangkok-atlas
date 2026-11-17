@@ -1,0 +1,105 @@
+---
+config:
+  theme: base
+  layout: dagre
+  look: classic
+  fontFamily: Arial, sans-serif
+  themeCSS: ".nodeLabel, .edgeLabel, .cluster-label { font-family: Arial, sans-serif !important; }"
+  themeVariables:
+    fontFamily: Arial, sans-serif
+    fontSize: 17px
+    primaryTextColor: '#17243a'
+    lineColor: '#8494ac'
+    clusterBkg: '#ffffff'
+    clusterBorder: '#dce4ef'
+    edgeLabelBackground: '#ffffff'
+  flowchart:
+    curve: linear
+    nodeSpacing: 30
+    rankSpacing: 45
+    padding: 16
+    htmlLabels: true
+    wrappingWidth: 290
+---
+flowchart TB
+    subgraph S["01 · DATA SOURCES"]
+        direction LR
+        OSM["fa:fa-map OpenStreetMap / Overpass<br/>POIs · Roads · Transit · Land Use<br/>Green Spaces · Buildings"]
+        T["fa:fa-university Treasury Department<br/>Bangkok Appraisal CSV / API"]
+        REF["fa:fa-map-marker-alt Reference Layers<br/>Districts · Rail Lines · Landmarks"]
+    end
+
+    subgraph P["02 · DATA PROCESSING"]
+        direction LR
+        PREP["fa:fa-cogs Spatial Data Preparation<br/>Fetch · Clean · Deduplicate<br/>300 m Hex Edge · UTM 47N"]
+        FEAT["fa:fa-ruler-combined Feature Engineering<br/>Spatial Joins · Distances<br/>Density · Diversity · Area Shares"]
+        SCORE["fa:fa-chart-bar Quality Scoring<br/>9 Dimensions · 0–100<br/>Deterministic Spatial Indices"]
+        IDX["fa:fa-university Appraisal Index<br/>500 m / 2 km Sheets · District"]
+        PREP --> FEAT --> SCORE
+    end
+
+    subgraph D["03 · LOCAL STORAGE"]
+        direction LR
+        GEO[("fa:fa-database Spatial Store<br/>Parquet · GeoJSON<br/>Cells · Features · Scores")]
+        META[("fa:fa-folder-open Reference Store<br/>Treasury Index JSON<br/>Reference Layers · Map Assets")]
+    end
+
+    subgraph B["04 · BACKEND — FastAPI"]
+        direction LR
+        ANALYSIS["fa:fa-search-location Location Analysis<br/>Quality Breakdown · Factors<br/>OSM Street-form Proxies"]
+        RANK["fa:fa-bullseye Recommendation Engine<br/>User Weights · District Filters<br/>Land-use Weight Adjustment<br/>Explainable Top-K Ranking"]
+        PRICE["fa:fa-coins Area Appraisal Reference<br/>Median · P10–P90<br/>Snapshot / Live Refresh"]
+        MEMO["fa:fa-file-alt Local Rule-based Memo<br/>Strengths · Cautions · Context"]
+        API["fa:fa-server REST API<br/>Grid · Location · Recommend<br/>Search · Map Layers · Treasury"]
+        ANALYSIS --> MEMO
+        PRICE --> MEMO
+        ANALYSIS <--> API
+        RANK <--> API
+        PRICE <--> API
+        MEMO --> API
+    end
+
+    subgraph F["05 · WEB APPLICATION"]
+        direction LR
+        UI["fa:fa-desktop Next.js · React · MapLibre GL<br/>3D Map · Quality Heatmap · Search<br/>Preferences · Ranked Locations<br/>Location Details · Appraisal · Memo"]
+        USER["fa:fa-user Users<br/>Select Location & Preferences"]
+        MAP["fa:fa-globe External Map Services<br/>Basemap / Satellite Display Tiles<br/>Street View / Mapillary Links"]
+        USER <--> UI
+        MAP -. "Display / visual verification" .-> UI
+    end
+
+    OSM --> PREP
+    T --> IDX
+    REF --> META
+    PREP --> GEO
+    FEAT --> GEO
+    SCORE --> GEO
+    IDX --> META
+    GEO --> ANALYSIS
+    GEO --> RANK
+    GEO --> API
+    META --> PRICE
+    META --> API
+    T -. "Optional live check" .-> PRICE
+    API <-->|"HTTP · JSON / GeoJSON"| UI
+    API ~~~ MAP
+    API ~~~ USER
+
+    classDef source fill:#f3f0ff,stroke:#8b7ed8,color:#352c65,rx:12,ry:12
+    classDef processing fill:#edf9f3,stroke:#39a887,color:#145c47,rx:12,ry:12
+    classDef storage fill:#fff8e9,stroke:#dba84b,color:#725315
+    classDef backend fill:#eef5ff,stroke:#77a6e3,color:#234d82,rx:12,ry:12
+    classDef frontend fill:#faf1ff,stroke:#be8ad5,color:#64387e,rx:12,ry:12
+    classDef external fill:#f5f7fb,stroke:#a3b0c2,color:#4d617b,rx:12,ry:12
+    class OSM,T,REF source
+    class PREP,FEAT,SCORE,IDX processing
+    class GEO,META storage
+    class ANALYSIS,RANK,PRICE,MEMO,API backend
+    class UI,USER frontend
+    class MAP external
+
+    style S fill:#fcfbff,stroke:#c9c1ea,stroke-width:1.5px
+    style P fill:#f9fdfb,stroke:#b8dfd0,stroke-width:1.5px
+    style D fill:#fffcf5,stroke:#ead1a1,stroke-width:1.5px
+    style B fill:#fafcff,stroke:#bdcfea,stroke-width:1.5px
+    style F fill:#fdfaff,stroke:#ddc8eb,stroke-width:1.5px

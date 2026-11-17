@@ -1,0 +1,87 @@
+---
+config:
+  theme: default
+  themeCSS: "text { paint-order: stroke; stroke: white; stroke-width: 4px; stroke-linejoin: round; }"
+  architecture:
+    padding: 30
+    nodeSeparation: 100
+    seed: 7
+---
+architecture-beta
+    group sources(cloud)[Data Sources]
+    group pipeline(server)[Data Processing]
+    group storage(database)[Local File Storage]
+    group backend(cloud)[Backend]
+    group frontend(internet)[Frontend]
+
+    service osm(internet)[OpenStreetMap] in sources
+    service treasury(cloud)[Treasury Data] in sources
+
+    service spatial(server)[300m Hex Feature Pipeline] in pipeline
+    service index(server)[Appraisal Index Builder] in pipeline
+
+    service geo(database)[Parquet and GeoJSON] in storage
+    service reference(disk)[Treasury and Reference JSON] in storage
+
+    service api(server)[FastAPI] in backend
+    service analysis(server)[Location Analysis and Ranking] in backend
+    service memo(server)[Local Rule Based Memo] in backend
+
+    service web(internet)[Next js and MapLibre] in frontend
+    service maps(cloud)[Map Tiles and Street Links] in frontend
+
+    junction gap1
+    junction gap1b
+    junction gap2
+    junction gap2b
+    junction gap3
+    junction gap3b
+    junction gap4
+    junction gap4b
+    junction low1
+    junction low1b
+    junction low2
+    junction low2b
+    junction low3
+    junction low3b
+
+    osm:R -- L:gap1
+    gap1:R -- L:gap1b
+    gap1b:R --> L:spatial
+    spatial:R -- L:gap2
+    gap2:R -- L:gap2b
+    gap2b:R --> L:geo
+    geo:R -- L:gap3
+    gap3:R -- L:gap3b
+    gap3b:R --> L:api
+    api:R <-- L:gap4
+    gap4:R -- L:gap4b
+    gap4b:R --> L:web
+
+    treasury:R -- L:low1
+    low1:R -- L:low1b
+    low1b:R --> L:index
+    index:R -- L:low2
+    low2:R -- L:low2b
+    low2b:R --> L:reference
+    reference:R -- L:low3
+    low3:R -- L:low3b
+    low3b:R --> L:analysis
+
+    api:B <--> T:analysis
+    analysis:B <--> T:memo
+    maps:T -- B:web
+
+    align row osm gap1 gap1b spatial gap2 gap2b geo gap3 gap3b api gap4 gap4b web
+    align row treasury low1 low1b index low2 low2b reference low3 low3b analysis maps
+    align column osm treasury
+    align column gap1 low1
+    align column gap1b low1b
+    align column spatial index
+    align column gap2 low2
+    align column gap2b low2b
+    align column geo reference
+    align column gap3 low3
+    align column gap3b low3b
+    align column api analysis memo
+    align column web maps

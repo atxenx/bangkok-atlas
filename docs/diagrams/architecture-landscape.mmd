@@ -1,0 +1,75 @@
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, sans-serif","fontSize":"16px","primaryTextColor":"#17243a","lineColor":"#8494ac","clusterBkg":"#ffffff","clusterBorder":"#dce4ef"},"flowchart":{"curve":"basis","nodeSpacing":24,"rankSpacing":48,"padding":18,"htmlLabels":true}}}%%
+flowchart LR
+    subgraph S["01 · DATA SOURCES"]
+        direction TB
+        OSM["🗺️ OpenStreetMap / Overpass<br/>POIs · Roads · Transit · Land Use<br/>Green Spaces · Buildings"]
+        T["🏛️ Treasury Department<br/>Bangkok Appraisal CSV / API"]
+        REF["📍 Reference Layers<br/>Districts · Rail Lines · Landmarks"]
+    end
+
+    subgraph P["02 · DATA PROCESSING"]
+        direction TB
+        PREP["⚙️ Spatial Data Preparation<br/>Fetch · Clean · Deduplicate<br/>300 m Hex Edge · UTM 47N"]
+        FEAT["📐 Feature Engineering<br/>Spatial Joins · Distances<br/>Density · Diversity · Area Shares"]
+        SCORE["📊 Quality Scoring<br/>9 Dimensions · 0–100<br/>Deterministic Spatial Indices"]
+        IDX["🏛️ Appraisal Index<br/>500 m / 2 km Sheets · District"]
+        PREP --> FEAT --> SCORE
+    end
+
+    subgraph D["03 · LOCAL STORAGE"]
+        direction TB
+        GEO[("🗄️ Spatial Store<br/>Parquet · GeoJSON<br/>Cells · Features · Scores")]
+        META[("📁 Reference Store<br/>Treasury Index JSON<br/>Reference Layers · Map Assets")]
+    end
+
+    subgraph B["04 · BACKEND — FastAPI"]
+        direction TB
+        ANALYSIS["🔎 Location Analysis<br/>Quality Breakdown · Factors<br/>OSM Street-form Proxies"]
+        RANK["🎯 Recommendation Engine<br/>User Weights · Land-use Filters<br/>Explainable Top-K Ranking"]
+        PRICE["💰 Area Appraisal Reference<br/>Median · P10–P90<br/>Snapshot / Live Refresh"]
+        MEMO["📝 Local Rule-based Memo<br/>Strengths · Cautions · Context"]
+        API["🔌 REST API<br/>Grid · Location · Recommend<br/>Search · Map Layers · Treasury"]
+        ANALYSIS --> MEMO
+        PRICE --> MEMO
+        ANALYSIS <--> API
+        RANK <--> API
+        PRICE <--> API
+        MEMO --> API
+    end
+
+    subgraph F["05 · WEB APPLICATION"]
+        direction TB
+        UI["🖥️ Next.js · React · MapLibre GL<br/>3D Map · Quality Heatmap · Search<br/>Preferences · Ranked Locations<br/>Location Details · Appraisal · Memo"]
+        USER["👤 Users<br/>Select Location & Preferences"]
+        MAP["🌐 External Map Services<br/>Basemap / Satellite Display Tiles<br/>Street View / Mapillary Links"]
+        USER <--> UI
+        MAP -. "Display / visual verification" .-> UI
+    end
+
+    OSM --> PREP
+    T --> IDX
+    REF --> META
+    PREP --> GEO
+    FEAT --> GEO
+    SCORE --> GEO
+    IDX --> META
+    GEO --> ANALYSIS
+    GEO --> RANK
+    GEO --> API
+    META --> PRICE
+    META --> API
+    T -. "Optional live check" .-> PRICE
+    API <-->|"HTTP · JSON / GeoJSON"| UI
+
+    classDef source fill:#f3f0ff,stroke:#8b7ed8,color:#352c65,rx:12,ry:12
+    classDef processing fill:#edf9f3,stroke:#39a887,color:#145c47,rx:12,ry:12
+    classDef storage fill:#fff8e9,stroke:#dba84b,color:#725315
+    classDef backend fill:#eef5ff,stroke:#77a6e3,color:#234d82,rx:12,ry:12
+    classDef frontend fill:#faf1ff,stroke:#be8ad5,color:#64387e,rx:12,ry:12
+    classDef external fill:#f5f7fb,stroke:#a3b0c2,color:#4d617b,rx:12,ry:12
+    class OSM,T,REF source
+    class PREP,FEAT,SCORE,IDX processing
+    class GEO,META storage
+    class ANALYSIS,RANK,PRICE,MEMO,API backend
+    class UI,USER frontend
+    class MAP external

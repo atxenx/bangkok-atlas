@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#F6F8FC"/>
+<text x="48" y="42" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#536682">DS2  /  SYSTEM ARCHITECTURE</text>
+<text x="48" y="79" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" fill="#142139">Multimodal AI for Neighborhood Quality</text>
+<text x="48" y="140" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#5B6C84">Bangkok neighborhood analysis, area appraisal references &amp; personalized location recommendations</text>
+<rect x="1510" y="48" width="362" height="38" rx="19" fill="#E7ECF5" stroke="none" stroke-width="1"/>
+<text x="1530" y="58" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#4F6381">CURRENT IMPLEMENTATION</text>
+<rect x="48" y="218" width="312" height="672" rx="22" fill="#FFFFFF" stroke="#E0E6F0" stroke-width="1"/>
+<rect x="66" y="238" width="38" height="34" rx="10" fill="#F0EDFF" stroke="none" stroke-width="1"/>
+<text x="74" y="247" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#7367CF">01</text>
+<text x="117" y="247" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#7367CF">DATA SOURCES</text>
+<polyline points="68,289 340,289" fill="none" stroke="#E8EDF4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="390" y="218" width="330" height="672" rx="22" fill="#FFFFFF" stroke="#E0E6F0" stroke-width="1"/>
+<rect x="408" y="238" width="38" height="34" rx="10" fill="#E9F8F2" stroke="none" stroke-width="1"/>
+<text x="416" y="247" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#07876B">02</text>
+<text x="459" y="247" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#07876B">DATA PROCESSING</text>
+<polyline points="410,289 700,289" fill="none" stroke="#E8EDF4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="750" y="218" width="278" height="672" rx="22" fill="#FFFFFF" stroke="#E0E6F0" stroke-width="1"/>
+<rect x="768" y="238" width="38" height="34" rx="10" fill="#FFF5E4" stroke="none" stroke-width="1"/>
+<text x="776" y="247" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#B77513">03</text>
+<text x="819" y="247" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#B77513">LOCAL STORAGE</text>
+<polyline points="770,289 1008,289" fill="none" stroke="#E8EDF4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1058" y="218" width="376" height="672" rx="22" fill="#FFFFFF" stroke="#E0E6F0" stroke-width="1"/>
+<rect x="1076" y="238" width="38" height="34" rx="10" fill="#EDF4FF" stroke="none" stroke-width="1"/>
+<text x="1084" y="247" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#3174C9">04</text>
+<text x="1127" y="247" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#3174C9">BACKEND SERVICES</text>
+<polyline points="1078,289 1414,289" fill="none" stroke="#E8EDF4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1464" y="218" width="408" height="672" rx="22" fill="#FFFFFF" stroke="#E0E6F0" stroke-width="1"/>
+<rect x="1482" y="238" width="38" height="34" rx="10" fill="#F7EEFC" stroke="none" stroke-width="1"/>
+<text x="1490" y="247" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#9A53BC">05</text>
+<text x="1533" y="247" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#9A53BC">WEB APPLICATION</text>
+<polyline points="1484,289 1852,289" fill="none" stroke="#E8EDF4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="66" y="315" width="276" height="154" rx="14" fill="#F5F3FF" stroke="none" stroke-width="1"/>
+<polyline points="82,338 92,334 102,338 112,334 112,360 102,364 92,360 82,364 82,338" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="92,334 92,360" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="102,338 102,364" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="126" y="335" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">OpenStreetMap</text>
+<text x="82" y="379" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">POIs, roads &amp; transit</text>
+<text x="82" y="406" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Green / water / land use</text>
+<text x="82" y="433" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">3D building footprints</text>
+<rect x="66" y="491" width="276" height="151" rx="14" fill="#F5F3FF" stroke="none" stroke-width="1"/>
+<polyline points="82,518 97,510 112,518 82,518" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="86,522 86,535" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="97,522 97,535" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="108,522 108,535" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="82,539 112,539" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="126" y="511" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Treasury Data</text>
+<text x="82" y="555" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Bangkok appraisal CSV</text>
+<text x="82" y="582" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Official datastore API</text>
+<text x="82" y="609" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Prices in THB / sq. wah</text>
+<rect x="66" y="664" width="276" height="151" rx="14" fill="#F5F3FF" stroke="none" stroke-width="1"/>
+<polyline points="82,691 97,683 112,691 97,699 82,691" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="82,699 97,691 112,699 97,707 82,699" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="82,707 97,699 112,707 97,715 82,707" fill="none" stroke="#7367CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="126" y="684" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Reference Layers</text>
+<text x="82" y="728" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">50 Bangkok districts</text>
+<text x="82" y="755" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Rail lines &amp; stations</text>
+<text x="82" y="782" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Curated landmarks</text>
+<rect x="408" y="315" width="294" height="127" rx="14" fill="#F0FAF6" stroke="none" stroke-width="1"/>
+<rect x="424" y="334" width="7" height="7" rx="1" fill="#FFFFFF" stroke="#07876B" stroke-width="1"/>
+<rect x="424" y="345" width="7" height="7" rx="1" fill="#FFFFFF" stroke="#07876B" stroke-width="1"/>
+<rect x="424" y="356" width="7" height="7" rx="1" fill="#FFFFFF" stroke="#07876B" stroke-width="1"/>
+<rect x="435" y="334" width="7" height="7" rx="1" fill="#FFFFFF" stroke="#07876B" stroke-width="1"/>
+<rect x="435" y="345" width="7" height="7" rx="1" fill="#FFFFFF" stroke="#07876B" stroke-width="1"/>
+<rect x="435" y="356" width="7" height="7" rx="1" fill="#FFFFFF" stroke="#07876B" stroke-width="1"/>
+<rect x="446" y="334" width="7" height="7" rx="1" fill="#FFFFFF" stroke="#07876B" stroke-width="1"/>
+<rect x="446" y="345" width="7" height="7" rx="1" fill="#FFFFFF" stroke="#07876B" stroke-width="1"/>
+<rect x="446" y="356" width="7" height="7" rx="1" fill="#FFFFFF" stroke="#07876B" stroke-width="1"/>
+<text x="468" y="335" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Prepare Spatial Data</text>
+<text x="424" y="379" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Fetch, clean &amp; deduplicate</text>
+<text x="424" y="406" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">300 m hex edge / UTM 47N</text>
+<polyline points="555,448 555,465" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="551.0475026862348,459.22265069563224 555,465 558.9524973137652,459.22265069563224" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="408" y="472" width="294" height="127" rx="14" fill="#F0FAF6" stroke="none" stroke-width="1"/>
+<polyline points="424,499 439,491 454,499 439,507 424,499" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="424,507 439,499 454,507 439,515 424,507" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="424,515 439,507 454,515 439,523 424,515" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="468" y="492" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Feature Engineering</text>
+<text x="424" y="536" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Spatial joins &amp; distances</text>
+<text x="424" y="563" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Density, diversity &amp; shares</text>
+<polyline points="555,605 555,622" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="551.0475026862348,616.2226506956323 555,622 558.9524973137652,616.2226506956323" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="408" y="629" width="294" height="102" rx="14" fill="#F0FAF6" stroke="none" stroke-width="1"/>
+<polyline points="424,648 424,678 456,678" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="430" y="666" width="5" height="10" rx="1" fill="#07876B" stroke="none" stroke-width="1"/>
+<rect x="439" y="657" width="5" height="19" rx="1" fill="#07876B" stroke="none" stroke-width="1"/>
+<rect x="448" y="649" width="5" height="27" rx="1" fill="#07876B" stroke="none" stroke-width="1"/>
+<text x="468" y="649" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Quality Scoring</text>
+<text x="424" y="693" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">9 dimensions / 0–100</text>
+<rect x="408" y="751" width="294" height="111" rx="14" fill="#F0FAF6" stroke="none" stroke-width="1"/>
+<polyline points="424,778 439,770 454,778 424,778" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="428,782 428,795" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="439,782 439,795" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="450,782 450,795" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="424,799 454,799" fill="none" stroke="#07876B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="468" y="771" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Appraisal Index</text>
+<text x="424" y="815" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">500 m / 2 km / district</text>
+<rect x="768" y="363" width="242" height="177" rx="14" fill="#FFFAF0" stroke="none" stroke-width="1"/>
+<rect x="784" y="388" width="30" height="21" rx="1" fill="#FFFFFF" stroke="#B77513" stroke-width="2"/>
+<ellipse cx="799.0" cy="388.0" rx="15.0" ry="6.0" fill="#FFFFFF" stroke="#B77513" stroke-width="2"/>
+<ellipse cx="799.0" cy="406.0" rx="15.0" ry="6.0" fill="#FFFFFF" stroke="#B77513" stroke-width="2"/>
+<polyline points="784,388 784,406" fill="none" stroke="#B77513" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="814,388 814,406" fill="none" stroke="#B77513" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="828" y="383" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Spatial Store</text>
+<text x="784" y="427" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Parquet + GeoJSON</text>
+<text x="784" y="454" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Cells, features &amp; scores</text>
+<text x="784" y="481" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Raw / processed layers</text>
+<rect x="768" y="566" width="242" height="151" rx="14" fill="#FFFAF0" stroke="none" stroke-width="1"/>
+<rect x="787" y="585" width="25" height="32" rx="3" fill="#FFFFFF" stroke="#B77513" stroke-width="2"/>
+<polyline points="792,593 807,593" fill="none" stroke="#B77513" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="792,600 807,600" fill="none" stroke="#B77513" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="792,607 802,607" fill="none" stroke="#B77513" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="828" y="586" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Reference Store</text>
+<text x="784" y="630" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Treasury index JSON</text>
+<text x="784" y="657" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">District / transit data</text>
+<text x="784" y="684" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Static map assets</text>
+<text x="776" y="756" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#B77513">File-based local data</text>
+<text x="776" y="786" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#63738A">Hex ID links spatial records</text>
+<rect x="1076" y="315" width="340" height="103" rx="14" fill="#F0F6FF" stroke="none" stroke-width="1"/>
+<rect x="1092" y="334" width="32" height="8" rx="2" fill="#FFFFFF" stroke="#3174C9" stroke-width="2"/>
+<ellipse cx="1097.0" cy="338.0" rx="1.0" ry="1.0" fill="#3174C9" stroke="#3174C9" stroke-width="1"/>
+<polyline points="1113,338 1119,338" fill="none" stroke="#3174C9" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1092" y="345" width="32" height="8" rx="2" fill="#FFFFFF" stroke="#3174C9" stroke-width="2"/>
+<ellipse cx="1097.0" cy="349.0" rx="1.0" ry="1.0" fill="#3174C9" stroke="#3174C9" stroke-width="1"/>
+<polyline points="1113,349 1119,349" fill="none" stroke="#3174C9" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1092" y="356" width="32" height="8" rx="2" fill="#FFFFFF" stroke="#3174C9" stroke-width="2"/>
+<ellipse cx="1097.0" cy="360.0" rx="1.0" ry="1.0" fill="#3174C9" stroke="#3174C9" stroke-width="1"/>
+<polyline points="1113,360 1119,360" fill="none" stroke="#3174C9" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1136" y="335" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">FastAPI REST API</text>
+<text x="1092" y="379" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">HTTP / JSON / GeoJSON</text>
+<polyline points="1246,424 1246,443" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1242.0475026862348,437.22265069563224 1246,443 1249.9524973137652,437.22265069563224" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1076" y="450" width="340" height="99" rx="14" fill="#F0F6FF" stroke="none" stroke-width="1"/>
+<ellipse cx="1108.0" cy="479.0" rx="10.0" ry="10.0" fill="none" stroke="#3174C9" stroke-width="2"/>
+<ellipse cx="1108.0" cy="479.0" rx="3.0" ry="3.0" fill="none" stroke="#3174C9" stroke-width="2"/>
+<polyline points="1100,485 1108,500 1116,485" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1136" y="470" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Location Analysis</text>
+<text x="1092" y="514" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Scores, factors &amp; street proxies</text>
+<rect x="1076" y="569" width="340" height="99" rx="14" fill="#F0F6FF" stroke="none" stroke-width="1"/>
+<polyline points="1092,592 1124,592" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="1101.0" cy="592.0" rx="3.0" ry="3.0" fill="#FFFFFF" stroke="#3174C9" stroke-width="2"/>
+<polyline points="1092,603 1124,603" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="1115.0" cy="603.0" rx="3.0" ry="3.0" fill="#FFFFFF" stroke="#3174C9" stroke-width="2"/>
+<polyline points="1092,614 1124,614" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="1107.0" cy="614.0" rx="3.0" ry="3.0" fill="#FFFFFF" stroke="#3174C9" stroke-width="2"/>
+<text x="1136" y="589" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Preference Ranking</text>
+<text x="1092" y="633" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Weighted match / filters / Top-K</text>
+<rect x="1076" y="688" width="340" height="99" rx="14" fill="#F0F6FF" stroke="none" stroke-width="1"/>
+<polyline points="1092,715 1107,707 1122,715 1092,715" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1096,719 1096,732" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1107,719 1107,732" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1118,719 1118,732" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1092,736 1122,736" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1136" y="708" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Appraisal Reference</text>
+<text x="1092" y="752" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Area median / P10–P90 / refresh</text>
+<rect x="1076" y="807" width="340" height="56" rx="12" fill="#F0F6FF" stroke="none" stroke-width="1"/>
+<rect x="1095" y="819" width="25" height="32" rx="3" fill="#FFFFFF" stroke="#3174C9" stroke-width="2"/>
+<polyline points="1100,827 1115,827" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1100,834 1115,834" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1100,841 1110,841" fill="none" stroke="#3174C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1136" y="824" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Local Rule-based Memo</text>
+<rect x="1482" y="315" width="372" height="100" rx="14" fill="#FAF3FD" stroke="none" stroke-width="1"/>
+<ellipse cx="1514.0" cy="340.0" rx="6.0" ry="6.0" fill="none" stroke="#9A53BC" stroke-width="2"/>
+<polyline points="1501,364 1501,358 1506,352 1522,352 1527,358 1527,364" fill="none" stroke="#9A53BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1542" y="335" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Users</text>
+<text x="1498" y="379" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Choose a location &amp; preferences</text>
+<polyline points="1668,423 1668,451" fill="none" stroke="#9A53BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1664.0475026862348,445.22265069563224 1668,451 1671.9524973137652,445.22265069563224" fill="none" stroke="#9A53BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1671.9524973137652,428.77734930436776 1668,423 1664.0475026862348,428.77734930436776" fill="none" stroke="#9A53BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1482" y="459" width="372" height="227" rx="14" fill="#FAF3FD" stroke="none" stroke-width="1"/>
+<rect x="1498" y="478" width="32" height="23" rx="3" fill="#FFFFFF" stroke="#9A53BC" stroke-width="2"/>
+<polyline points="1514,501 1514,508" fill="none" stroke="#9A53BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1505,508 1523,508" fill="none" stroke="#9A53BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1542" y="479" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">Next.js + React</text>
+<text x="1498" y="523" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">MapLibre GL / 3D map</text>
+<text x="1498" y="550" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Quality heatmap &amp; location search</text>
+<text x="1498" y="577" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Preference sliders &amp; ranked results</text>
+<text x="1498" y="604" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Location details &amp; investment memo</text>
+<text x="1498" y="631" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">English / Thai interface</text>
+<rect x="1482" y="716" width="372" height="146" rx="14" fill="#F4F6FA" stroke="none" stroke-width="1"/>
+<polyline points="1498,739 1508,735 1518,739 1528,735 1528,761 1518,765 1508,761 1498,765 1498,739" fill="none" stroke="#7889A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1508,735 1508,761" fill="none" stroke="#7889A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1518,739 1518,765" fill="none" stroke="#7889A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1542" y="736" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#17243A">External Map Services</text>
+<text x="1498" y="780" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Basemap / satellite display tiles</text>
+<text x="1498" y="807" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Street View / Mapillary links</text>
+<text x="1498" y="834" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#52647C">Visual verification by the user</text>
+<polyline points="1668,710 1668,694" fill="none" stroke="#7889A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1671.9524973137652,699.7773493043677 1668,694 1664.0475026862348,699.7773493043677" fill="none" stroke="#7889A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="363,535 387,535" fill="none" stroke="#8A98AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="381.22265069563224,538.9524973137652 387,535 381.22265069563224,531.0475026862348" fill="none" stroke="#8A98AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="723,535 747,535" fill="none" stroke="#8A98AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="741.2226506956323,538.9524973137652 747,535 741.2226506956323,531.0475026862348" fill="none" stroke="#8A98AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1031,535 1055,535" fill="none" stroke="#8A98AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1049.2226506956322,538.9524973137652 1055,535 1049.2226506956322,531.0475026862348" fill="none" stroke="#8A98AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1437,535 1461,535" fill="none" stroke="#8A98AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1455.2226506956322,538.9524973137652 1461,535 1455.2226506956322,531.0475026862348" fill="none" stroke="#8A98AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1442.7773493043678,531.0475026862348 1437,535 1442.7773493043678,538.9524973137652" fill="none" stroke="#8A98AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="61" y="908" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#7367CF">COLLECT</text>
+<text x="407" y="908" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#07876B">BATCH PIPELINE</text>
+<text x="768" y="908" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#B77513">PERSIST</text>
+<text x="1076" y="908" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#3174C9">SERVE &amp; EXPLAIN</text>
+<text x="1482" y="908" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#9A53BC">EXPLORE &amp; COMPARE</text>
+<polyline points="48,960 1872,960" fill="none" stroke="#DEE5EF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="48" y="985" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#73839A">SCORING</text>
+<text x="141" y="982" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#41536D">Deterministic spatial indices</text>
+<text x="596" y="985" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#73839A">MEMO</text>
+<text x="660" y="982" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#41536D">Local rule-based synthesis</text>
+<text x="1125" y="985" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#73839A">PRICE</text>
+<text x="1188" y="982" dominant-baseline="text-before-edge" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#41536D">Area-level Treasury appraisal reference</text>
+</svg>

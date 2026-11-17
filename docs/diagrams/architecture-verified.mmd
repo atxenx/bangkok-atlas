@@ -1,0 +1,69 @@
+---
+title: Bangkok Neighborhood Quality - System Architecture
+config:
+  theme: default
+  themeCSS: "text { paint-order: stroke; stroke: white; stroke-width: 5px; stroke-linejoin: round; }"
+  architecture:
+    iconSize: 100
+    fontSize: 16
+    padding: 25
+    nodeSeparation: 110
+    idealEdgeLengthMultiplier: 2.0
+    seed: 7
+---
+architecture-beta
+    group sources(cloud)[Data Sources]
+    group batch(server)[Batch Pipeline]
+    group files(database)[Local File Stores]
+    group backend(cloud)[Backend]
+    group client(internet)[Web Client]
+
+    service osm(internet)[OSM Overpass] in sources
+    service treasury(cloud)[Treasury CSV] in sources
+
+    service fetch(server)[Fetch and Clean] in batch
+    service features(server)[300m Hex Features] in batch
+    service quality(server)[9D Quality Index] in batch
+    service index(server)[Appraisal Index] in batch
+
+    service raw(disk)[Raw OSM Layers] in files
+    service geo(database)[Cells and Features] in files
+    service scores(database)[Scores and Contributions] in files
+    service reference(disk)[Treasury and Map Data] in files
+
+    service api(server)[FastAPI REST Services] in backend
+
+    service web(internet)[Next js MapLibre App] in client
+    service fallback(server)[Client Ranking Fallback] in client
+    service assets(disk)[Bundled Map JSON] in client
+
+    service tiles(internet)[OSM CARTO Esri Tiles]
+    service views(internet)[Street View Mapillary]
+    junction display
+
+    osm:R --> L:fetch
+    fetch:R --> L:raw
+    fetch:B --> T:features
+    features:R --> L:geo
+    features:B --> T:quality
+    quality:R --> L:scores
+    treasury:R --> L:index
+    index:R --> L:reference
+
+    geo{group}:R --> L:api{group}
+    api{group}:R <--> L:web{group}
+    web:B -- T:fallback
+
+    tiles:B --> T:display
+    views:T -- B:display
+    display:L -- R:web
+
+    align row osm fetch raw tiles
+    align row features geo api web display
+    align row quality scores fallback views
+    align row treasury index reference assets
+    align column osm treasury
+    align column fetch features quality index
+    align column raw geo scores reference
+    align column web fallback assets
+    align column tiles display views

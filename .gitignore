@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Data downloads and intermediate outputs
+/data/raw/*
+!/data/raw/bangkok_boundary.geojson
+!/data/raw/lines.json
+!/data/raw/poi.geojson
+!/data/raw/transit.parquet
+/data/processed/*
+!/data/processed/buildings_3d.geojson
+!/data/processed/cells_wgs84.parquet
+!/data/processed/dims.parquet
+!/data/processed/districts.geojson
+!/data/processed/features.parquet
+!/data/processed/treasury_price_index.json
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/public/vendor/maplibre/
+
+# Env / OS
+.env
+.env.*
+.DS_Store
+
+# Local tool state and working documents
+/.freebuff/
+/.codex/
+/output/
+/tmp/
+/PROJECT_OVERVIEW.txt
+*.log
