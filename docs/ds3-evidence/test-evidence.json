@@ -1,0 +1,744 @@
+{
+  "test_date": "2026-11-19",
+  "timezone": "Asia/Bangkok",
+  "base_commit": "218adf9",
+  "working_tree": "workspace changes included",
+  "backend_pytest": {
+    "passed": 82,
+    "failed": 0
+  },
+  "frontend": {
+    "lint": "pass",
+    "production_build": "pass"
+  },
+  "rebuild_pipeline": {
+    "input": "local data with separate major/minor road parquets",
+    "cells": 6594,
+    "feature_columns": 42,
+    "cells_with_roads": 6343,
+    "scores_in_range": true
+  },
+  "http_api": [
+    {
+      "case": "API-01 Health and schema",
+      "status": "pass",
+      "evidence": {
+        "status": "ok",
+        "cells_count": 6594,
+        "stations_count": 256,
+        "buildings_count": 2531,
+        "documented_paths": 16
+      }
+    },
+    {
+      "case": "API-02 Hex grid and filtering by payload",
+      "status": "pass",
+      "evidence": {
+        "cells": 6594,
+        "first_hex": "300m-r0-c25"
+      }
+    },
+    {
+      "case": "API-03 District, neighborhood and transit data",
+      "status": "pass",
+      "evidence": {
+        "districts": 50,
+        "neighborhoods": 37,
+        "stations": 256,
+        "lines": 11,
+        "routes": 11
+      }
+    },
+    {
+      "case": "API-04 Bilingual search, four result types and empty query result",
+      "status": "pass",
+      "evidence": {
+        "Siam": {
+          "count": 5,
+          "expected_type": "station"
+        },
+        "บางรัก": {
+          "count": 4,
+          "expected_type": "district"
+        },
+        "Thong Lo": {
+          "count": 2,
+          "expected_type": "neighborhood"
+        },
+        "ICONSIAM": {
+          "count": 2,
+          "expected_type": "landmark"
+        }
+      }
+    },
+    {
+      "case": "API-05 Cached buildings and footprint selection",
+      "status": "pass",
+      "evidence": {
+        "cached_buildings": 2531,
+        "matched": "ICONSIAM",
+        "status": "matched"
+      }
+    },
+    {
+      "case": "API-06 Preferences and recommendation ranking",
+      "status": "pass",
+      "evidence": {
+        "presets": 7,
+        "default_results": 12,
+        "default_first": "300m-r46-c53",
+        "weighted_first": "300m-r59-c77",
+        "filtered_results": 12,
+        "filtered_district": "Bang Rak",
+        "budget_preserves_ranking": true
+      }
+    },
+    {
+      "case": "API-07 Location analysis, pricing context and imagery link structure",
+      "status": "pass",
+      "evidence": {
+        "hex_id": "300m-r46-c53",
+        "district": "Pathum Wan",
+        "quality": 80.8,
+        "dimensions": 9,
+        "comparables": 3,
+        "imagery_hosts": {
+          "satellite_preview_url": "server.arcgisonline.com",
+          "street_view_link": "www.google.com",
+          "mapillary_link": "www.mapillary.com"
+        }
+      }
+    },
+    {
+      "case": "API-08 Historical flood area and location",
+      "status": "pass",
+      "evidence": {
+        "locations_with_2011_overlap": 4228,
+        "hex_id": "300m-r10-c18",
+        "2011_overlap_pct": 20.2651,
+        "observed_years": [
+          2011
+        ],
+        "road_report_last_date": "2026-10-02"
+      }
+    },
+    {
+      "case": "API-09 Live flood sensors",
+      "status": "pass",
+      "evidence": {
+        "feed_status": "ok",
+        "stations": 248,
+        "fresh_readings": 237
+      }
+    },
+    {
+      "case": "API-10 Live 24-hour rain and outlook",
+      "status": "pass",
+      "evidence": {
+        "rain_mm": 0.0,
+        "until": "2026-11-20T06:00:00+00:00",
+        "level": "low"
+      }
+    },
+    {
+      "case": "API-11 Treasury map-sheet lookup and input validation",
+      "status": "pass",
+      "evidence": {
+        "live_reference": "returned",
+        "reference_fields": [
+          "median",
+          "n",
+          "p10",
+          "p90",
+          "resolution_m",
+          "source_last_modified",
+          "source_mode",
+          "source_url",
+          "utm_sheet",
+          "utm_subsheet"
+        ],
+        "selected_summary": {
+          "median": 400000
+        }
+      }
+    },
+    {
+      "case": "API-12 Exact Treasury parcel lookup and input validation",
+      "status": "pass",
+      "evidence": {
+        "http": 200,
+        "match_count": 1,
+        "matches": [
+          {
+            "appraised_price_sqwah": 100000.0,
+            "land_no": "203"
+          }
+        ]
+      }
+    },
+    {
+      "case": "API-13 Multiple flood years and documented district event",
+      "status": "pass",
+      "evidence": {
+        "observed_cell": "300m-r17-c29",
+        "observed_overlap_percent": {
+          "2026": 18.113,
+          "2011": 11.831
+        },
+        "district_event_cell": "300m-r90-c60",
+        "district_event": "A household survey in sampled Don Mueang communities reported a median road depth of 1.5 m",
+        "district_event_source": "Water Resources Research"
+      }
+    }
+  ],
+  "browser_counts": {
+    "pass": 22,
+    "fail": 1
+  },
+  "browser_end_to_end": {
+    "results": [
+      {
+        "id": "UI-01 Landing, section navigation and Explore",
+        "status": "pass",
+        "evidence": {
+          "path": "/explore",
+          "sections": 3,
+          "initialStyle": "carto-light"
+        }
+      },
+      {
+        "id": "UI-02 Thai/English and language persistence",
+        "status": "pass",
+        "evidence": {
+          "thai_after_reload": true,
+          "map_style_label": "Map style"
+        }
+      },
+      {
+        "id": "UI-03 Map navigation and five basemap modes",
+        "status": "pass",
+        "evidence": {
+          "zoom_before": 11.5,
+          "zoom_after": 12.5,
+          "basemaps": [
+            "carto-light",
+            "carto-dark",
+            "satellite",
+            "osm"
+          ],
+          "three_d_reference": "UI-07"
+        }
+      },
+      {
+        "id": "UI-04 Map overlays and score legend",
+        "status": "pass",
+        "evidence": [
+          {
+            "layer": "Show 50 Districts",
+            "pixels_without": 0,
+            "pixels_with": 52593
+          },
+          {
+            "layer": "Show Neighborhood Labels",
+            "pixels_without": 0,
+            "pixels_with": 43345
+          },
+          {
+            "layer": "Show Hex Overlay",
+            "pixels_without": 0,
+            "pixels_with": 792039
+          }
+        ]
+      },
+      {
+        "id": "UI-05 Station labels and rail line filters",
+        "status": "pass",
+        "evidence": {
+          "visible_line_choices": 9,
+          "pixels_enabled": 54958,
+          "pixels_all_disabled": 0
+        }
+      },
+      {
+        "id": "UI-06 Golden Locations against the bundled snapshot",
+        "status": "fail",
+        "error": "Snapshot has 0 qualifying cells and 0 visible amber pixels"
+      },
+      {
+        "id": "UI-07 3D buildings, skyline jump and reset",
+        "status": "pass",
+        "evidence": {
+          "rendered_building_features": 377,
+          "skyline_center": [
+            100.52840000000003,
+            13.72359999999999
+          ],
+          "reset_pitch": 58.00000000000001
+        }
+      },
+      {
+        "id": "UI-08 Click 3D building and open its cell analysis",
+        "status": "pass",
+        "evidence": {
+          "popup": "🏢 Fraser Suites Sukhumvit\nความสูงที่ใช้แสดงผล: 121 เมตร\nประเภท: Building\nชื่อจากรูปอาคาร OSM · ความสูงอาจเป็นค่าประมาณ\n×",
+          "location_http": 200,
+          "hex_id": "300m-r48-c53",
+          "x": 445.5,
+          "y": 271,
+          "render_height": 121
+        }
+      },
+      {
+        "id": "UI-09 Parks, area, boundaries and illustrative 3D trees",
+        "status": "pass",
+        "evidence": {
+          "markers": 31,
+          "park": "สวนลุมพินี",
+          "rendered_tree_parts": 1032
+        }
+      },
+      {
+        "id": "UI-10 Back to 2D and select hex cell on map",
+        "status": "pass",
+        "evidence": {
+          "hex_id": "300m-r49-c48",
+          "pitch": 0,
+          "bearing": 0
+        }
+      },
+      {
+        "id": "UI-11 Search suggestions and keyboard selection",
+        "status": "pass",
+        "evidence": {
+          "result_counts": {
+            "บางรัก": 4,
+            "Thong Lo": 2,
+            "ICONSIAM": 2,
+            "Siam": 5
+          },
+          "http": 200,
+          "hex_id": "300m-r49-c48"
+        }
+      },
+      {
+        "id": "UI-12 Search no-results and clear button",
+        "status": "pass",
+        "evidence": {
+          "message": "No matching locations found"
+        }
+      },
+      {
+        "id": "UI-13 Location details and comparable areas",
+        "status": "pass",
+        "evidence": {
+          "title": "Siam - Pathum Wan, Pathum Wan",
+          "headings": [
+            "Siam - Pathum Wan, Pathum Wan",
+            "9 Quality Dimensions Breakdown",
+            "Key Advantages (Positive Factors)",
+            "Risk Considerations (Areas for Caution)",
+            "Similar Comparable Neighborhoods",
+            "Flood analysis"
+          ]
+        }
+      },
+      {
+        "id": "UI-14 Appraisal data with source and road benchmark",
+        "status": "pass",
+        "evidence": {
+          "source_link": "https://assessprice.treasury.go.th/",
+          "nearby_appraisal": true,
+          "published_road_units": true,
+          "live_sheet_refreshed": true
+        }
+      },
+      {
+        "id": "UI-15 Street-form proxies and Investment Memo",
+        "status": "pass",
+        "evidence": {
+          "imagery_links": [
+            "https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=13.747990214517301,100.53413461578248",
+            "https://www.mapillary.com/app/?lat=13.747990214517301&lng=100.53413461578248&z=16"
+          ],
+          "memo_visible": true,
+          "proxy_indices_visible": true
+        }
+      },
+      {
+        "id": "UI-16 Flood card live, history, and road sensor context",
+        "status": "pass",
+        "evidence": {
+          "rendered_summary": "Flood analysis\n24-hour rain-related flood outlook\nLow signal\n\nForecast rain totals 0 mm through 20 Nov, 13:00\n\n20-year history\nMain roads · Pathum Wan\n10–30 cm\nReported in 2026, 2025, 2024, 2023, 2022\nLatest water depth\n\n0 cm\n\nMaximum across 1 nearby readings\n\nLatest reading 19 Nov, 13:45"
+        }
+      },
+      {
+        "id": "UI-17 Preference presets and sliders",
+        "status": "pass",
+        "evidence": {
+          "sliders": 9,
+          "applied_preset": "Golden Locations",
+          "submitted_weights": {
+            "transit": 100,
+            "amenities": 95,
+            "walkability": 90,
+            "greenery": 50,
+            "road_environment": 75,
+            "commercial": 95,
+            "residential": 45,
+            "quietness": 30,
+            "environmental": 45
+          },
+          "changed_first_slider": 8
+        }
+      },
+      {
+        "id": "UI-18 District, land use, budget and size into recommendation",
+        "status": "pass",
+        "evidence": {
+          "request": {
+            "weights": {
+              "transit": 8,
+              "amenities": 95,
+              "walkability": 90,
+              "greenery": 50,
+              "road_environment": 75,
+              "commercial": 95,
+              "residential": 45,
+              "quietness": 30,
+              "environmental": 45
+            },
+            "budget": 15000000,
+            "land_size_sqwah": 50,
+            "land_use": "commercial",
+            "district": "Bang Rak",
+            "k": 12
+          },
+          "matched_district_results": 12,
+          "close_and_clear": true
+        }
+      },
+      {
+        "id": "UI-19 Client fallback when recommendation API returns 503",
+        "status": "pass",
+        "evidence": {
+          "simulated_http": 503,
+          "remaining_ranked_locations": 12
+        }
+      },
+      {
+        "id": "UI-20 Flood card fallback when endpoint returns 503",
+        "status": "pass",
+        "evidence": {
+          "simulated_http": 503,
+          "rendered_fallback": "Flood analysis\n\nFlood data is currently unavailable"
+        }
+      },
+      {
+        "id": "UI-21 Mobile viewport and navigation",
+        "status": "pass",
+        "evidence": {
+          "landing": {
+            "inner_width": 390,
+            "page_width": 390
+          },
+          "explore": {
+            "inner_width": 390,
+            "page_width": 390,
+            "map_width": 390,
+            "map_height": 337
+          },
+          "search_and_detail": true
+        }
+      },
+      {
+        "id": "UI-22 No unhandled browser JavaScript exceptions",
+        "status": "pass",
+        "evidence": {
+          "uncaught_runtime_exceptions": 0
+        }
+      },
+      {
+        "id": "UI-23 Golden Locations rendering with controlled data",
+        "status": "pass",
+        "evidence": {
+          "fixture_golden_cells": 20,
+          "amber_pixels": 105438,
+          "banner_closed": true
+        }
+      }
+    ],
+    "errors": [],
+    "retest": {
+      "id": "UI-16 Flood card live, history, and road sensor context",
+      "note": "Rechecked the latest flood card on the same production build after its headings changed, after the grid and district snapshot was loaded."
+    }
+  },
+  "browser_smoke": {
+    "initial": {
+      "title": "Bangkok Atlas — Explore Neighborhoods in Bangkok",
+      "contentLength": 1277,
+      "errorOverlay": false,
+      "style": "carto-light",
+      "pitch": 0,
+      "bearing": 0,
+      "gridCanvas": true
+    },
+    "threeD": {
+      "pitch": 58.00000000000001,
+      "bearing": -24,
+      "layerReady": true,
+      "sourceReady": true,
+      "sourceLoaded": true,
+      "sourceFeatureCount": 252,
+      "center": [
+        100.56000000000006,
+        13.739999999999952
+      ],
+      "zoom": 15.8,
+      "statusText": ""
+    },
+    "twoD": {
+      "pitch": 0,
+      "bearing": 0,
+      "style": "osm"
+    },
+    "searchCount": 5,
+    "detailReady": true,
+    "recommendationReady": true,
+    "browserErrors": [],
+    "browserWarnings": [
+      "layers[highway-shield-non-us].filter[1]: Expected value to be of type number, but found null instead. Falling back to false.",
+      "layers[highway-shield-us-interstate].filter[1]: Expected value to be of type number, but found null instead. Falling back to false.",
+      "layers[road_shield_us].filter[1]: Expected value to be of type number, but found null instead. Falling back to false.",
+      "layers[highway-shield-non-us].filter[1]: Expected value to be of type number, but found null instead. Falling back to false.",
+      "layers[highway-shield-us-interstate].filter[1]: Expected value to be of type number, but found null instead. Falling back to false.",
+      "layers[road_shield_us].filter[1]: Expected value to be of type number, but found null instead. Falling back to false."
+    ]
+  },
+  "golden_locations_real_snapshot": {
+    "total_cells": 6594,
+    "golden_cells": 0,
+    "price_sources": {
+      "treasury_area_reference": 6594
+    },
+    "highest_area_reference_median_sqwah": 550000,
+    "highest_area_hex": "300m-r44-c47",
+    "minimum_area_median_sqwah": 600000
+  },
+  "supplemental_rule_checks": {
+    "method": "Called the existing Python implementation with the bundled grid or controlled inputs. No application code or data changed for these checks.",
+    "passed": 17,
+    "failed": 0,
+    "results": [
+      {
+        "case": "GL-01",
+        "mode": "snapshot",
+        "input": {
+          "snapshot": "bundled",
+          "cells": 6594,
+          "threshold_thb_per_sqwah": 600000,
+          "max_median": 550000
+        },
+        "expected": {
+          "eligible_cells": 0
+        },
+        "observed": {
+          "eligible_cells": 0
+        },
+        "status": "pass"
+      },
+      {
+        "case": "GL-02",
+        "mode": "fixture",
+        "input": {
+          "median_thb_per_sqwah": 599999
+        },
+        "expected": false,
+        "observed": false,
+        "status": "pass"
+      },
+      {
+        "case": "GL-03",
+        "mode": "fixture",
+        "input": {
+          "median_thb_per_sqwah": 600000
+        },
+        "expected": true,
+        "observed": true,
+        "status": "pass"
+      },
+      {
+        "case": "GL-04",
+        "mode": "fixture",
+        "input": {
+          "median_thb_per_sqwah": 600001
+        },
+        "expected": true,
+        "observed": true,
+        "status": "pass"
+      },
+      {
+        "case": "FL-10",
+        "mode": "fixture",
+        "input": {
+          "depth_cm": 0,
+          "capped": false
+        },
+        "expected": "dry",
+        "observed": "dry",
+        "status": "pass"
+      },
+      {
+        "case": "FL-11",
+        "mode": "fixture",
+        "input": {
+          "depth_cm": 1,
+          "capped": false
+        },
+        "expected": "light",
+        "observed": "light",
+        "status": "pass"
+      },
+      {
+        "case": "FL-12",
+        "mode": "fixture",
+        "input": {
+          "depth_cm": 11,
+          "capped": false
+        },
+        "expected": "moderate",
+        "observed": "moderate",
+        "status": "pass"
+      },
+      {
+        "case": "FL-13",
+        "mode": "fixture",
+        "input": {
+          "depth_cm": 20,
+          "capped": true
+        },
+        "expected": "at_least_moderate",
+        "observed": "at_least_moderate",
+        "status": "pass"
+      },
+      {
+        "case": "FL-14",
+        "mode": "fixture",
+        "input": {
+          "depth_cm": 25,
+          "capped": false
+        },
+        "expected": "heavy",
+        "observed": "heavy",
+        "status": "pass"
+      },
+      {
+        "case": "FL-18",
+        "mode": "fixture",
+        "input": {
+          "rain_mm": 10.0,
+          "fresh_water_depth_cm": 0,
+          "prior_overlap_pct": []
+        },
+        "expected": "low",
+        "observed": "low",
+        "status": "pass"
+      },
+      {
+        "case": "FL-19",
+        "mode": "fixture",
+        "input": {
+          "rain_mm": 10.1,
+          "fresh_water_depth_cm": 0,
+          "prior_overlap_pct": []
+        },
+        "expected": "watch",
+        "observed": "watch",
+        "status": "pass"
+      },
+      {
+        "case": "FL-20",
+        "mode": "fixture",
+        "input": {
+          "rain_mm": 35.0,
+          "fresh_water_depth_cm": 0,
+          "prior_overlap_pct": [
+            10,
+            25
+          ]
+        },
+        "expected": "watch",
+        "observed": "watch",
+        "status": "pass"
+      },
+      {
+        "case": "FL-21",
+        "mode": "fixture",
+        "input": {
+          "rain_mm": 35.1,
+          "fresh_water_depth_cm": 0,
+          "prior_overlap_pct": [
+            10,
+            25
+          ]
+        },
+        "expected": "high",
+        "observed": "high",
+        "status": "pass"
+      },
+      {
+        "case": "FL-22",
+        "mode": "fixture",
+        "input": {
+          "rain_mm": 90.0,
+          "fresh_water_depth_cm": 0,
+          "prior_overlap_pct": []
+        },
+        "expected": "watch",
+        "observed": "watch",
+        "status": "pass"
+      },
+      {
+        "case": "FL-23",
+        "mode": "fixture",
+        "input": {
+          "rain_mm": 90.1,
+          "fresh_water_depth_cm": 0,
+          "prior_overlap_pct": []
+        },
+        "expected": "high",
+        "observed": "high",
+        "status": "pass"
+      },
+      {
+        "case": "FL-24",
+        "mode": "fixture",
+        "input": {
+          "rain_mm": 0.0,
+          "fresh_water_depth_cm": 1,
+          "prior_overlap_pct": []
+        },
+        "expected": "watch",
+        "observed": "watch",
+        "status": "pass"
+      },
+      {
+        "case": "FL-25",
+        "mode": "fixture",
+        "input": {
+          "rain_mm": null,
+          "fresh_water_depth_cm": 0,
+          "prior_overlap_pct": []
+        },
+        "expected": null,
+        "observed": null,
+        "status": "pass"
+      }
+    ]
+  },
+  "detailed_report_counts": {
+    "verified_checks": 90,
+    "controlled_checks": 24,
+    "live_snapshot_demo_failure": "UI-06"
+  }
+}
